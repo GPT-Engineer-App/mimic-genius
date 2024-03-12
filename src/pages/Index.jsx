@@ -40,7 +40,24 @@ const Index = () => {
       <Heading mb="8">Todo App</Heading>
       <HStack>
         <Input value={inputValue} onChange={handleInputChange} onKeyPress={handleKeyPress} placeholder="Add a new task..." />
-        <IconButton icon={<FaPlus />} onClick={addTodo} colorScheme="red" aria-label="Add todo" />
+        <IconButton
+          icon={<FaPlus />}
+          onClick={addTodo}
+          aria-label="Add todo"
+          css={{
+            animation: "rainbow 1s infinite",
+            "@keyframes rainbow": {
+              "0%": { background: "red" },
+              "14%": { background: "orange" },
+              "28%": { background: "yellow" },
+              "42%": { background: "green" },
+              "57%": { background: "blue" },
+              "71%": { background: "indigo" },
+              "85%": { background: "violet" },
+              "100%": { background: "red" },
+            },
+          }}
+        />
       </HStack>
       <List spacing={3} my={5} w="100%">
         {todos.map((todo, index) => (
